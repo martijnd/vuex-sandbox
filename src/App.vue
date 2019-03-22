@@ -1,20 +1,8 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <NotificationCount />
   </div>
 </template>
-
-<script>
-import HelloWorld from "./components/HelloWorld.vue";
-
-export default {
-  name: "app",
-  components: {
-    HelloWorld
-  }
-};
-</script>
 
 <style lang="scss">
 #app {
@@ -26,3 +14,15 @@ export default {
   margin-top: 60px;
 }
 </style>
+
+<script>
+import NotificationCount from "./components/NotificationCount";
+
+export default {
+  name: "app",
+  components: {
+    NotificationCount
+  },
+  methods: {}
+};
+</script>
