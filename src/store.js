@@ -7,7 +7,7 @@ let ws;
 
 export default new Vuex.Store({
   state: {
-    messages: []
+    messages: 0
   },
   mutations: {
     setMessages(state, messages) {
