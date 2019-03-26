@@ -1,6 +1,15 @@
 <template>
   <div id="app">
-    <NotificationCount />
+    <h1>{{ messagecount }}</h1>
+    <div v-for="message in $store.state.messages" :key="message">
+      {{ message }}
+    </div>
+    <div class="ui input">
+      <input type="text" v-model="newMessage" />
+    </div>
+    <button @click="addMessage" class="ui primary button">
+      Click
+    </button>
   </div>
 </template>
 
@@ -16,13 +25,26 @@
 </style>
 
 <script>
-import NotificationCount from "./components/NotificationCount";
-
 export default {
   name: "app",
-  components: {
-    NotificationCount
+  data: function() {
+    return {
+      newMessage: ""
+    };
   },
-  methods: {}
+  computed: {
+    messagecount() {
+      return this.$store.state.messages.length;
+    }
+  },
+  components: {},
+  methods: {
+    addMessage() {
+      if (this.newMessage.length > 0) {
+        this.$store.commit("addMessage", this.newMessage);
+        this.newMessage = "";
+      }
+    }
+  }
 };
 </script>
